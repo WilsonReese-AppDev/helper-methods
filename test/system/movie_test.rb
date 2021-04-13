@@ -11,6 +11,7 @@ class MoviesTest < ApplicationSystemTestCase
   end
 
   test "can create a new movie and list it in the index" do
+    original_movie_count = Movie.count
     visit movies_path
     
     click_on "Add a new movie"
@@ -18,6 +19,9 @@ class MoviesTest < ApplicationSystemTestCase
     fill_in "Description", with: "Movie 1 Description blah blah blah."
     click_on "Create movie"
 
+    assert_text "Movie created successfully"
+    ending_movie_count = Movie.count
+    assert_equal original_movie_count + 1, ending_movie_count
     assert_text "Movie 1"
   end
 
@@ -35,6 +39,8 @@ class MoviesTest < ApplicationSystemTestCase
     fill_in "Description", with: "New description for edit test"
 
     click_on "Update movie"
+
+    assert_text "Movie updated successfully"
 
     @movie.reload # I don't know what this does
     assert_equal "New title for edit test", @movie.title
