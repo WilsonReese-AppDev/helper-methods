@@ -54,6 +54,7 @@ class MoviesTest < ApplicationSystemTestCase
     assert_equal ending_movie_count + 1, original_movie_count
   end
 
+  #checking to see if this commits
 
 
   # test "can show details of new movie from index" do
