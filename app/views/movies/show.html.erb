@@ -14,10 +14,8 @@
       </div>
 
       <div>
-        <%= link_to "Delete movie", @the_movie %>
-        <a href="<%= movie_path(@the_movie) %>" data-method="delete">
-          Delete movie
-        </a>
+      <!-- How do we handle the data-method="delete" if we don't have anchor element -->
+        <%= link_to "Delete movie", @the_movie, method: "delete" %>
       </div>
     </div>
 
