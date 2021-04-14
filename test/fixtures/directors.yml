@@ -1,9 +1,9 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
+  name: First Director
   dob: 2021-04-14
 
 two:
-  name: MyString
+  name: Second Director
   dob: 2021-04-14
