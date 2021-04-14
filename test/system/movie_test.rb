@@ -10,19 +10,20 @@ class MoviesTest < ApplicationSystemTestCase
     assert_selector "h1", text: "New movie"
   end
 
-  test "can create a new movie and list it in the index" do
+  test "creating a Movie" do
     original_movie_count = Movie.count
-    visit movies_path
-    
+
+    visit movies_url
     click_on "Add a new movie"
-    fill_in "Title", with: "Movie 1"
-    fill_in "Description", with: "Movie 1 Description blah blah blah."
-    click_on "Create movie"
+
+    fill_in "Description", with: "A new movie's descroption"
+    fill_in "Title", with: "A new movie's title"
+    click_on "Create Movie"
 
     assert_text "Movie created successfully"
+    
     ending_movie_count = Movie.count
     assert_equal original_movie_count + 1, ending_movie_count
-    assert_text "Movie 1"
   end
 
   test "can view show page" do
@@ -38,7 +39,7 @@ class MoviesTest < ApplicationSystemTestCase
     fill_in "Title", with: "New title for edit test"
     fill_in "Description", with: "New description for edit test"
 
-    click_on "Update movie"
+    click_on "Update Movie"
 
     assert_text "Movie updated successfully"
 

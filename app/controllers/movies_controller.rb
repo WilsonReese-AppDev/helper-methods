@@ -37,10 +37,9 @@ class MoviesController < ApplicationController
   end
 
   def update
-    @movie = Movie.find(params.fetch(:id))
-
-    @movie.title = params.fetch(:title)
-    @movie.description = params.fetch(:description)
+    @movie = Movie.find(params.fetch(:id)) 
+    movie_attributes = params.require(:movie).permit(:title, :description) 
+    @movie.update(movie_attributes)
 
     if @movie.valid?
       @movie.save
