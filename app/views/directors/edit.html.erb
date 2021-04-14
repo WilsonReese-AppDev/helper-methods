@@ -1,17 +1,17 @@
-<h1>New director </h1>
+<h1>Edit director</h1>
 
 <% @director.errors.full_messages.each do |message| %>
   <p style="color: red;"><%= message %></p>
 <% end %>
 
-<%= form_with(model: @director) do |form| %>
+<%= form_with(model: @director, method: :patch) do |form| %>
   <div>
     <%= form.label :name %>
     <%= form.text_field :name %>
   </div>
 
   <div>
-    <%= form.label :dob, "Date of Birth" %>
+    <%= form.label :dob, "Date of Birth"%>
     <%= form.date_field :dob %>
   </div>
 
